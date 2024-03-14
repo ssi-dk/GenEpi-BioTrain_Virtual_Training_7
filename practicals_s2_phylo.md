@@ -67,7 +67,7 @@ Now we switch to the command line and to the core genome SNPs from the *L. monoc
 
 Load the `phylo` environment using the following command:
 ```sh
-source activate BTG_day6_phylo
+source activate phylo
 ```
 And cd into the directory with the course data:
 ```sh
@@ -82,7 +82,7 @@ sed -r 's/::.*//' ../snippy/core.aln > core_stripped.fasta
 This creates a copy of the matrix with the odd characters stripped.  
 We can then run the gubbins command:
 ```sh
-run_gubbins.py core_stripped.fasta -c 2
+run_gubbins.py core_stripped.fasta -c 8
 ```
 This will output a purged SNP matrix with fewer sites but the same number of taxa called `core_stripped.filtered_polymorphic_sites.fasta`
 
@@ -91,7 +91,7 @@ This will output a purged SNP matrix with fewer sites but the same number of tax
 We use the very versatile software *IQTREE* to produce a high-quality maximum likelihood tree from the purged SNP matrix.  
 ```sh
 cd ..; mkdir iqtree; cd iqtree
-iqtree -s ../gubbins/core_stripped.filtered_polymorphic_sites.fasta -m TEST+ASC -T AUTO --threads-max 2 -pre ML_iqtree -mem 8GB
+iqtree -s ../gubbins/core_stripped.filtered_polymorphic_sites.fasta -m TEST+ASC -T AUTO --threads-max 8 -pre ML_iqtree -mem 8GB
 ```
 This creates the output file `ML_iqtree.treefile`, which is a *NEWICK* format tree file. To use it further, we need to make a copy with extension .nwk: 
 ```sh
@@ -149,20 +149,16 @@ Here we have prepared a basic script to plot our tree, called `ete3_phylo.py` (a
 
 To run the script, open a console and type the following commands:
 ```sh
-cp ../scripts/ete3_phylo.py .
-python ete3_phylo.py
+cp scripts/ete3_phylo.py .
+python scripts/ete3_phylo.py
 open mytree.png
 ```
 Open the file mytree.png and compare it to the figures obtained in other tools.
 
-
 Inspect the script and try to answer the following questions:  
 
-1. What does the my_layout() function do? 
+1. What does the `my_layout()` function do? 
 2. Where are the colors for the regions defined? Can you change one of them? 
 3. What are the rectangles colored by?  
 
 If you have time, try to change some of the settings in the script. 
-
-
-

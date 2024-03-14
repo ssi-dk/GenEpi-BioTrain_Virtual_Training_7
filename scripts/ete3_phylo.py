@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 import os
 import pandas as pd
-from scripts.ete3_phylo import Tree, add_face_to_node, TextFace, TreeStyle, RectFace
+from ete3 import Tree, add_face_to_node, TextFace, TreeStyle, RectFace
 os.environ['QT_QPA_PLATFORM']='offscreen'
 base_path = ''
 
 # Load metadata and convert to dict
-metadata = pd.read_csv(base_path+'../metadata/metadata.tsv', delimiter = '\t')
+metadata = pd.read_csv(base_path+'metadata/metadata.tsv', delimiter = '\t')
 m_dict = dict()
 for i, row in metadata.iterrows():
     m_dict[str(row['Key'])] = {'Date': row['Prøvedato'], 'Region': row['region'], 'SampleMaterial': row['SampleMaterial']}

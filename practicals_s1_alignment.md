@@ -7,14 +7,17 @@ Exercise: Run MLST
 Exercise: Run a core-genome SNP analysis using snippy
 
 ## Before you start
-All required files for the practicals are deposited in the github repo [github.com/ssi-dk/...](github.com/ssi-dk/...). To get started, clone this repo to your computer.  
+All required files for the practicals are deposited in the github repo [github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7).  
+To get started, clone this repo to your computer.  
 ```sh
-git clone github.com/ssi-dk/...
+cd <your preferred location>
+git clone https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7.git
+cd GenEpi-BioTrain_Virtual_Training_7
 ```
 To have the required tools installed on your computer, use `conda` with the provided environment `.yaml` files:
 ```sh
-conda install -c bioconda -c conda-forge -f TBA
-conda install -c bioconda -c conda-forge -f TBA
+conda install -c bioconda -c conda-forge -f alignment.env.yaml
+conda install -c bioconda -c conda-forge -f phylo.env.yaml
 ```
 Important: Create a subfolder within the repo folder for each tool you are running on the command line, so the output of each tool is in its own folder. 
 
@@ -52,7 +55,6 @@ Note: You can use `*` to select multiple files or folders for mlst.
 Use a screen so you can have the job running in the background: 
 ```sh
 screen
-cd <your_repo_path>
 ```
 
 Use the environment `alignment`  
@@ -60,23 +62,26 @@ Use the environment `alignment`
 . activate alignment
 ```
 
-Run Snippy on the 23 assembly files in `data/spades_assemblies/`
+Run Snippy on the 23 assembly files in `assemblies/`
 
 ```sh
 mkdir snippy
 cd snippy
-for f in ../data/spades_assemblies/*.fasta; do n=$(basename $f); n=${n/.fasta}; snippy --outdir $n --ctgs ${f}/contigs.fasta --reference  ../data/spades_assemblies/SRR27240806.fasta; done
+for f in ../assemblies/*.fasta; do n=$(basename $f); n=${n/.fasta}; snippy --outdir $n --ctgs ${f} --reference  ../assemblies/SRR27240806.fasta; done
 ```
 When it's running, you can detach the screen using `Ctrl+A`, followed by `D` to return to your original terminal window.  
 To get back into the screen, use `screen -r`  
-Note: For running snippy on raw reads (which is much more reliable but takes a bit longer):  
-```sh
-for f in ../data/illumina_reads/SRR272408*_R1*; do n=$(basename $f); snippy --outdir ${n/_R1*} --R1 $(dirname ${f})/${n} --R2 $(dirname ${f})/${n/_R1*}_R2.fastq.gz --reference ../data/spades_assemblies/SRR27240806.fasta; done
-```
+> Note: For running snippy on raw reads (which is much more reliable but takes a bit longer):  
+> ```sh
+> for f in ../reads/SRR272408*_R1*; do n=$(basename $f); snippy --outdir ${n/_R1*} --R1 $(dirname ${f})/${n} --R2 $(dirname ${f})/${n/_R1*}_R2.fastq.gz --reference ../assemblies/SRR27240806.fasta; done
+> ```
 When snippy is done, you need to create the core-genome using:  
 ```sh
 snippy-core --ref SRR27240806/ref.fa SRR*/
 ```
 
-
+and finally you can exit the screen: 
+```sh
+exit
+```
 
