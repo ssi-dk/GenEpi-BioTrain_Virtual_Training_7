@@ -22,9 +22,9 @@ conda install -c bioconda -c conda-forge -f phylo.env.yaml
 Important: Create a subfolder within the repo folder for each tool you are running on the command line, so the output of each tool is in its own folder. 
 
 ## Exercise 1: Needleman-Wunsch algorithm
-![Needelmann-Wunsch substitution matrix](./imgs/NWsubst_model.png)  
+![Needelmann-Wunsch substitution matrix](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/imgs/NWsubst_model.png)  
 Gap penalty = -2
-![Needelmann-Wunsch exercise](./imgs/NWexercise.png)  
+![Needelmann-Wunsch exercise](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/imgs/NWexercise.png)  
 
 ## Exercise 2: Multiple Sequence Alignment with mafft and muscle
 Use the environment `alignment`  
