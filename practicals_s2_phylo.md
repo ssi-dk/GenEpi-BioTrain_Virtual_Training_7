@@ -13,14 +13,17 @@ In this practical, you will learn to create a phylogenetic tree from an alignmen
 ## Before you start
 > **Note:** If you have done these steps for session 1, there is no need to redo them  
 
-All required files for the practicals are deposited in the github repo [github.com/ssi-dk/...](github.com/ssi-dk/...). To get started, clone this repo to your computer.  
+All required files for the practicals are deposited in the github repo [github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7).  
+To get started, clone this repo to your computer.  
 ```sh
-git clone github.com/ssi-dk/...
+cd <your preferred location>
+git clone https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7.git
+cd GenEpi-BioTrain_Virtual_Training_7
 ```
 To have the required tools installed on your computer, use `conda` with the provided environment `.yaml` files:
 ```sh
-conda install -c bioconda -c conda-forge -f TBA
-conda install -c bioconda -c conda-forge -f TBA
+conda install -c bioconda -c conda-forge -f alignment.env.yaml
+conda install -c bioconda -c conda-forge -f phylo.env.yaml
 ```
 Important: Create a subfolder within the repo folder for each tool you are running on the command line, so the output of each tool is in its own folder. 
 
@@ -29,7 +32,13 @@ In Part 1 of this practical, we will create phylogenetic trees using different m
 
 ### Exercise 1: Create a Neighbour-joining tree
 Neighbor joining (NJ) is a bottom-up (agglomerative) clustering method for the creation of phylogenetic trees, created by Naruya Saitou and Masatoshi Nei in 1987. Neighbour joining takes a distance matrix, which specifies the distance between each pair of taxa, as input. The algorithm starts with a completely unresolved tree, whose topology corresponds to that of a star network, and iterates over several deterministic steps, until the tree is completely resolved, and all branch lengths are known.  
-Here we use the *MEGA* software to create a NJ tree. 
+
+Here we use the [*MEGA*](https://www.megasoftware.net) software to create a NJ tree.  
+
+>Download the required file `16s_sequences_mafft_alignment.fasta` from EVA or using:
+> ```sh
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/16s_data/16s_sequences_mafft_alignment.fasta
+> ```
 1.	Open MEGA on your Computer
 2.	Drag-n-drop the `16s_sequences_mafft_alignment.fasta` file from session 1 on the window
 3.	Choose `Analize` because the file is already aligned
@@ -49,7 +58,7 @@ Questions:
 
 
 ### Exercise 2: Create a Maximum parsimony tree with 100 bootstrap replicates
-We again use the *MEGA* software to create a Maximum parsimony tree. 
+We again use the [*MEGA*](https://www.megasoftware.net) software to create a Maximum parsimony tree. 
 
 1.	Click on Phylogeny and choose a maximum parsimony phyologeny
 2.	Choose `yes` for the current file
@@ -64,6 +73,11 @@ Questions:
 
 ### Exercise 3: Remove recombinant sites from SNP matrix
 Now we switch to the command line and to the core genome SNPs from the *L. monocytogenes* dataset from the morning session.  
+
+>Download the required file `core.aln` from EVA or using:
+> ```sh
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/core.aln
+> ```
 
 Load the `phylo` environment using the following command:
 ```sh
@@ -89,6 +103,13 @@ This will output a purged SNP matrix with fewer sites but the same number of tax
 
 ### Exercise 4: Create a maximum likelihood tree with IQTREE
 We use the very versatile software *IQTREE* to produce a high-quality maximum likelihood tree from the purged SNP matrix.  
+
+>Download the required file `core.aln` from EVA or using:
+> ```sh
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/core_stripped.filtered_polymorphic_sites.fasta
+> ```
+
+Run iqtree: 
 ```sh
 cd ..; mkdir iqtree; cd iqtree
 iqtree -s ../gubbins/core_stripped.filtered_polymorphic_sites.fasta -m TEST+ASC -T AUTO --threads-max 8 -pre ML_iqtree -mem 8GB
@@ -112,8 +133,14 @@ In this part, we will visualize the obtained tree using different methods.
 ### Exercise 1: Visualize a tree using Microreact
 Microreact is a tool for open data visualization and sharing for genomic epidemiology. It is freely available and is widely used in public health data analysis.  
 
+>Download the required files from EVA or using:
+> ```sh
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/ML_iqtree.treefile.nwk
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/metadata/metadata.tsv
+> ```
+
 To get your tree visualized and annotated in Microreact, do the following:
-1.	Go to https://microreact.org and watch the video if you want to
+1.	Go to [https://microreact.org](https://microreact.org) and watch the video if you want to
 2.	Click on `upload`
 3.	Choose or drop your tree file
 4.	Click continue
@@ -129,9 +156,17 @@ Questions:
 2.	Do they all come from the same region? 
 
 ### Exercise 2: Visualize a tree using iTOL
-iTOL is an online tool for visualizing phylogenies and related metadata. The tool is free to use, but for saving your annotations, paied subscription has been introduced a few years ago. However, the tool is frequently used for publication ready phylogenetic trees. 
+iTOL is an online tool for visualizing phylogenies and related metadata. The tool is free to use, but for saving your annotations, paied subscription has been introduced a few years ago. However, the tool is frequently used for publication ready phylogenetic trees.  
+>Download the required files from EVA or using:
+> ```sh
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/ML_iqtree.treefile.nwk
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/metadata/metadata.tsv
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/metadata/dataset_color_gradient_template.txt
+> wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/metadata/dataset_color_strip_template.txt
+> ```
+
 To get your tree visualized and annotated in iTOL do the following:
-1.	Open iTOL on https://itol.embl.de 
+1.	Open iTOL on [https://itol.embl.de](https://itol.embl.de) 
 2.	Click on `Upload`
 3.	Upload your newick tree file by clicking `choose file`
 4.	Re-root your tree with the ancestor of samples `SRR27240812` and `SRR27240820` as outgroup (use the submenu `Tree structure`)
@@ -139,13 +174,14 @@ To get your tree visualized and annotated in iTOL do the following:
     a. Go to `Datasets` in the Control panel  
     b. Click on `Upload annotation files`  
     c. Choose the two files and click `upload`  
-    > More templates can be downloaded from https://itol.embl.de/help.cgi#annoTemplate 
+    > More templates can be downloaded from [https://itol.embl.de/help.cgi#annoTemplate](https://itol.embl.de/help.cgi#annoTemplate)
 6.	Export and save your tree with annotations as a `.pdf`
 
-### Exercise 3: Visualize a tree using the python library ETE3
-*ETE3* is a python toolkit to do phylogenetic analysis and visualize phylogenetic trees.  
+### Exercise 3: Visualize a tree using the python library ETE3 (for command line users only)
+[*ETE3*](http://etetoolkit.org) is a python toolkit to do phylogenetic analysis and visualize phylogenetic trees.  
 
 Here we have prepared a basic script to plot our tree, called `ete3_phylo.py` (available in the `scripts` folder).  
+> This script is dependent on the correct folder structure and file names, namely: `iqtree/ML_iqtree.treefile.nwk` and `metadata/metadata.tsv` as well as the script in the `scripts` folder.
 
 To run the script, open a console and type the following commands:
 ```sh
