@@ -67,22 +67,127 @@ muscle -align 16s_sequences.fasta -output 16s_sequences_muscle_alignment.fasta
 
 
 ## Exercise 3: blastn
-Use blastn to identify the 16s rRNA gene in one of the spades assemblies found in `data/spades_assemblies`  
-Use the environment `alignment`  
+For this exercise we will use the Listeria assemblies found in assemblies.tar.gz
+
+If you have not already downloaded and extracted these, either download the tar-file from EVA or from github using
+```sh
+wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/assemblies.tar.gz
+```
+
+You can extract the assemblies using
+
+```sh
+tar -xf assemblies.tar.gz
+```
+
+This will create a folder named “assemblies” with genome assemblies for 22 isolates. Have a look at the first one with
+```sh
+less assemblies/SRR27240806.fasta
+```
+
+We will use blast to identify the v3-v4 region of the 16s rRNA gene in this assembly. For that we will need a reference sequence. If you have not already downloaded this, do so using
+```sh
+wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/16s_data/16s_v3_v4_reference.fasta
+```
+
+have a look at the file 
+```sh
+less 16s_v3_v4_reference.fasta
+```
+
+Use the environment `alignment` 
+
+First check out the blast help file
+
 ```sh
 blastn -h
 ```
-Use 16s_sequences.fasta as query input and one of the assembly fasta files as subject input
 
-## Exercise 4: MLST
+Now we'll use blast to identify the 16s v3-v4 region in one of our isolates. For that we will use the v3-v4 reference sequence fasta file as query and the assembly fasta file as subject. Output the data to a file.
 
-Use the environment `alignment`  
+```sh
+blastn -query 16s_v3_v4_reference.fasta -subject assemblies/SRR27240806.fasta -out SRR27240806_16s_blast.txt
+```
+Have a look at the output
 
-Perform in-silico MLST on all the spades assemblies in `data/spades_assemblies_careful`
+```sh
+less SRR27240806_16s_blast.txt
+```
 
-Note: You can use `*` to select multiple files or folders for mlst.
+Now do the same blast, but with a more programmatic-friendly tab separated output
 
-## Exercise 5: Core genome alignment and SNP analysis
+```sh
+blastn -query 16s_v3_v4_reference.fasta -subject assemblies/SRR27240806.fasta -out SRR27240806_16s_blast.tsv -outfmt 6
+```
+And have a look
+
+```sh
+less SRR27240806_16s_blast.tsv
+```
+
+Again with a programmatic friendly output, but this time we want to output specific information. Like the exact DNA sequence of the subject match and the length of the input sequence
+
+```sh
+blastn -query 16s_v3_v4_reference.fasta -subject assemblies/SRR27240806.fasta -out SRR27240806_16s_blast_2.tsv -outfmt "6 qseqid sseqid length qlen pident sseq"
+```
+And have a look at the output again
+
+```sh
+less SRR27240806_16s_blast_2.tsv
+```
+
+
+We can also blast multiple query sequences at once. Let us try with all the different 16s sequences we aligned earlier.
+
+```sh
+blastn -query 16s_v3_v4_sequences.fasta -subject assemblies/SRR27240806.fasta -out SRR27240806_16s_all_blast.txt
+```
+And have a look at the output again
+
+```sh
+less SRR27240806_16s_all_blast.txt
+```
+
+
+BLAST is fast with a small data set like a single bacterial genome, but with large subject sequences it can get computationally heavy.
+By building a pre-indexed database that can be passed with the -db option, rather than parsing a subject sequence with the -subject option, you can speed up your blast search.
+Additionaly, it is easy to include data from multiple genomes in our database, so we can identify sequences in multiple isolates with a single blast search.
+
+We want to create a blast database containing the genomes of all 22 isolates in the assemblies folder. To do this, we first have to combine (or in computer-speak "concatenate"), all our assemblies into a single fasta file.
+
+To do this, use:
+```sh
+cat assemblies/*.fasta > Listeria_assemblies.fasta
+```
+
+We can now create a blast database from this file.
+First create a folder for your database:
+```sh
+mkdir blast_DB
+```
+
+And then make the database using
+```sh
+makeblastdb -in Listeria_assemblies.fasta -out blast_DB/Listeria_assemblies -dbtype nucl
+```
+
+Have a look at the files in the "blast_DB" folder
+```sh
+ls -l blast_DB
+```
+
+We can now query the reference 16s sequence against all the assemblies at once
+```sh
+blastn -query 16s_v3_v4_sequences.fasta -db blast_DB/Listeria_assemblies -out Listeria_16s_blast.txt
+```
+
+And have a look at the output
+```sh
+less Listeria_16s_blast
+```
+
+
+## Exercise 4: Core genome alignment and SNP analysis
 
 Use a screen so you can have the job running in the background: 
 ```sh
@@ -94,7 +199,7 @@ Use the environment `alignment`
 . activate alignment
 ```
 
-Run Snippy on the 23 assembly files in `assemblies/`
+Run Snippy on the 22 assembly files in `assemblies/`
 
 ```sh
 mkdir snippy

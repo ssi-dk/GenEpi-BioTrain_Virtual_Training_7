@@ -1,0 +1,85 @@
+BLASTN 2.12.0+
+
+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
+Miller (2000), "A greedy algorithm for aligning DNA sequences", J
+Comput Biol 2000; 7(1-2):203-14.
+
+
+
+Database: User specified sequence set (Input:
+data/assemblies/SRR27240806.fasta).
+           28 sequences; 2,919,135 total letters
+
+
+
+Query= 16s_v3_v4_reference
+
+Length=449
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+SRR27240806__NODE_21_length_1410_cov_850.822956 NODE_21_length_14...  586     3e-168
+
+
+> SRR27240806__NODE_21_length_1410_cov_850.822956 NODE_21_length_1410_cov_850.822956
+Length=1410
+
+ Score = 586 bits (317),  Expect = 3e-168
+ Identities = 409/453 (90%), Gaps = 8/453 (2%)
+ Strand=Plus/Minus
+
+Query  1     ACTCCTATGGGACGCAGCAGTAGGGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCAA  60
+             ||||||| |||| ||||||||||||||||||||||||||| |||||| ||||||||||||
+Sbjct  1266  ACTCCTACGGGAGGCAGCAGTAGGGAATCTTCCGCAATGGACGAAAGTCTGACGGAGCAA  1207
+
+Query  61    CGCCGCGTGAGTGAAGAAGGTCTTCGGATCGTAAAACTCTGTTATTAGGGAAGAACAAAT  120
+             |||||||||  |||||||||| |||||||||||||   ||||| |||| |||||||||  
+Sbjct  1206  CGCCGCGTGTATGAAGAAGGTTTTCGGATCGTAAAGTACTGTTGTTAGAGAAGAACAA--  1149
+
+Query  121   GTGT-A-AGTAACTATGCACGT--CTTGACGGTACCTAATCAGAAAGCCACGGCTAACTA  176
+             |  | | ||||||  |||  ||  |||||||||| |||| ||||||||||||||||||||
+Sbjct  1148  GGATAAGAGTAAC--TGCTTGTCCCTTGACGGTATCTAACCAGAAAGCCACGGCTAACTA  1091
+
+Query  177   CGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTATCCGGAATTATTGGGCGTAA  236
+             ||||||||||||||||||||||||||||||||||||||| |||||| |||||||||||||
+Sbjct  1090  CGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAA  1031
+
+Query  237   AGCGCGCGTAGGCGGTTTTTTAAGTCTGATGTGAAAGCCCACGGCTCAACCGTGGAGGGT  296
+             |||||||| ||||||| ||||||||||||||||||||||| ||||| ||||| |||||||
+Sbjct  1030  AGCGCGCGCAGGCGGTCTTTTAAGTCTGATGTGAAAGCCCCCGGCTTAACCGGGGAGGGT  971
+
+Query  297   CATTGGAAACTGGAAAACTTGAGTGCAGAAGAGGAAAGTGGAATTCCATGTGTAGCGGTG  356
+             ||||||||||||||| ||| ||||||||||||||| |||||||||||| |||||||||||
+Sbjct  970   CATTGGAAACTGGAAGACTGGAGTGCAGAAGAGGAGAGTGGAATTCCACGTGTAGCGGTG  911
+
+Query  357   AAATGCGCAGAGATATGGAGGAACACCAGTGGCGAAGGCGACTTTCTGGTCTGTAACTGA  416
+             ||||||| ||| || |||||||||||||||||||||||||||| ||||||||||||||||
+Sbjct  910   AAATGCGTAGATATGTGGAGGAACACCAGTGGCGAAGGCGACTCTCTGGTCTGTAACTGA  851
+
+Query  417   CGCTGATGTGCGAAAGCGTGGGGATCAAACAGG  449
+             |||||| | ||||||||||||||| ||||||||
+Sbjct  850   CGCTGAGGCGCGAAAGCGTGGGGAGCAAACAGG  818
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 1249138116
+
+
+  Database: User specified sequence set (Input:
+data/assemblies/SRR27240806.fasta).
+    Posted date:  Unknown
+  Number of letters in database: 2,919,135
+  Number of sequences in database:  28
+
+
+
+Matrix: blastn matrix 1 -2
+Gap Penalties: Existence: 0, Extension: 2.5
