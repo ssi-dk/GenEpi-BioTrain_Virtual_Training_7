@@ -29,10 +29,42 @@ Gap penalty = -2
 ## Exercise 2: Multiple Sequence Alignment with mafft and muscle
 Use the environment `alignment`  
 Align the sequences found in data/16S/16s_sequences.fasta using mafft and muscle from command line
+
+To download sequences use:
+```sh
+wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/data/16s_data/16s_sequences.fasta
+```
+Have a look at the file
+```sh
+less 16s_sequences.fasta
+```
+
+
+Check MAFFT helper
+
 ```sh
 mafft -h
+```
+
+Run MAFFT to align the sequences in 16s_sequences.fasta
+
+```sh
+mafft 16s_sequences.fasta > 16s_sequences_mafft_alignment.fasta
+```
+
+Check MUSCLE helper
+
+```sh
 muscle -h
 ```
+
+Run MUSCLE to align the sequences in 16s_sequences.fasta
+
+```sh
+muscle -align 16s_sequences.fasta -output 16s_sequences_muscle_alignment.fasta
+```
+
+
 
 ## Exercise 3: blastn
 Use blastn to identify the 16s rRNA gene in one of the spades assemblies found in `data/spades_assemblies`  
