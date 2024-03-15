@@ -30,7 +30,7 @@ Gap penalty = -2
 Use the environment `alignment`  
 Align the sequences found in data/16S/16s_sequences.fasta using mafft and muscle from command line
 
-To download sequences use:
+If you don't have them available yet, download the sequences using:
 ```sh
 wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/data/16s_data/16s_sequences.fasta
 ```
@@ -85,7 +85,8 @@ This will create a folder named “assemblies” with genome assemblies for 22 i
 less assemblies/SRR27240806.fasta
 ```
 
-We will use blast to identify the v3-v4 region of the 16s rRNA gene in this assembly. For that we will need a reference sequence. If you have not already downloaded this, do so using
+We will use blast to identify the v3-v4 region of the 16s rRNA gene in this assembly. For that we will need a reference sequence.  
+If you have not already downloaded this, do so using
 ```sh
 wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/16s_data/16s_v3_v4_reference.fasta
 ```
@@ -206,7 +207,7 @@ mkdir snippy
 cd snippy
 for f in ../assemblies/*.fasta; do n=$(basename $f); n=${n/.fasta}; snippy --outdir $n --ctgs ${f} --reference  ../assemblies/SRR27240806.fasta; done
 ```
-When it's running, you can detach the screen using `Ctrl+A`, followed by `D` to return to your original terminal window.  
+When it's running, you can detach the screen using `Ctrl+a`, followed by `d` to return to your original terminal window.  
 To get back into the screen, use `screen -r`  
 > Note: For running snippy on raw reads (which is much more reliable but takes a bit longer):  
 > ```sh

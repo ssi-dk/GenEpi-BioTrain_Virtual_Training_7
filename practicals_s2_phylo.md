@@ -11,6 +11,13 @@ In this practical, you will learn to create a phylogenetic tree from an alignmen
 
 
 ## Before you start
+### Stand alone software
+For this exercise, you will need the following stand alone software: 
+- Figtree (http://tree.bio.ed.ac.uk/software/figtree/)
+- MEGA ≥v10 (https://www.megasoftware.net)
+- A Web browser (in order to use Microreact and iTol and to visualize a .png image)
+
+### Exercise data
 > **Note:** If you have done these steps for session 1, there is no need to redo them  
 
 All required files for the practicals are deposited in the github repo [github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7).  
@@ -35,7 +42,7 @@ Neighbor joining (NJ) is a bottom-up (agglomerative) clustering method for the c
 
 Here we use the [*MEGA*](https://www.megasoftware.net) software to create a NJ tree.  
 
->Download the required file `16s_sequences_mafft_alignment.fasta` from EVA or using:
+>If you don't have it available yet, download the required file `16s_sequences_mafft_alignment.fasta` from EVA or via command line using:
 > ```sh
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/16s_data/16s_sequences_mafft_alignment.fasta
 > ```
@@ -53,7 +60,7 @@ A tree showing the phylogenetic relationship appears. Read the caption and decid
 
 Questions: 
 1.	Which isolates cluster together?
-2.	Which genomes are most closely related to the S. aureus genomes?
+2.	Which genomes are most closely related to the *S. aureus* genomes?
 3.	Is this a reliable tree? 
 
 
@@ -72,9 +79,9 @@ Questions:
 
 
 ### Exercise 3: Remove recombinant sites from SNP matrix
-Now we switch to the command line and to the core genome SNPs from the *L. monocytogenes* dataset from the morning session.  
+Now we switch to the command line and to the core genome SNPs from the *L. monocytogenes* dataset from session 1.  
 
->Download the required file `core.aln` from EVA or using:
+>If you don't have it available yet, download the required file `core.aln` from EVA or via command line using:
 > ```sh
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/core.aln
 > ```
@@ -87,7 +94,8 @@ And cd into the directory with the course data:
 ```sh
 cd <your_repo_path>
 ```
-To obtain a good alignment of SNPs, we need to take care of regions of putative recombination. We use gubbins to remove these regions from the SNP matrix. To do so, we first need to strip odd characters from the matix using a sed command because gubbins doesn’t like these:
+To obtain a good alignment of SNPs, we need to take care of regions of putative recombination. We use [gubbins](https://github.com/nickjcroucher/gubbins) to remove these regions from the SNP matrix.  
+To do so, we first need to strip odd characters from the matix using a sed command because gubbins doesn’t like these:
 ```sh
 mkdir gubbins
 cd gubbins
@@ -102,9 +110,9 @@ This will output a purged SNP matrix with fewer sites but the same number of tax
 
 
 ### Exercise 4: Create a maximum likelihood tree with IQTREE
-We use the very versatile software *IQTREE* to produce a high-quality maximum likelihood tree from the purged SNP matrix.  
+We use the very versatile software [*IQTREE*](http://www.iqtree.org) to produce a high-quality maximum likelihood tree from the purged SNP matrix.  
 
->Download the required file `core.aln` from EVA or using:
+>If you don't have it available yet, download the required file `core.aln` from EVA or via command line using:
 > ```sh
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/core_stripped.filtered_polymorphic_sites.fasta
 > ```
@@ -120,7 +128,7 @@ cp ML_iqtree.treefile ML_iqtree.treefile.nwk
 ```
 
 ### Exercise 5 (optional): Create a fast approximate maximum likelihood tree with fasttree
-We use the very fast software fasttree to produce a fast approximate maximum likelihood tree from the purged SNP matrix. 
+We use the very fast software [fasttree](http://www.microbesonline.org/fasttree/) to produce a fast approximate maximum likelihood tree from the purged SNP matrix. 
 ```sh
 cd ..; mkdir fasttree; cd fasttree
 fasttree -nt -gtr ../gubbins/core_stripped.filtered_polymorphic_sites.fasta > core_fasttree.nwk
@@ -131,9 +139,9 @@ This creates the output file `core_fasttree.nwk`, which is a *NEWICK* format tre
 In this part, we will visualize the obtained tree using different methods. 
 
 ### Exercise 1: Visualize a tree using Microreact
-Microreact is a tool for open data visualization and sharing for genomic epidemiology. It is freely available and is widely used in public health data analysis.  
+[Microreact](https://microreact.org) is a tool for open data visualization and sharing for genomic epidemiology. It is freely available and is widely used in public health data analysis.  
 
->Download the required files from EVA or using:
+>If you don't have them available yet, download the required files from EVA or via command line using:
 > ```sh
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/ML_iqtree.treefile.nwk
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/metadata/metadata.tsv
@@ -156,8 +164,9 @@ Questions:
 2.	Do they all come from the same region? 
 
 ### Exercise 2: Visualize a tree using iTOL
-iTOL is an online tool for visualizing phylogenies and related metadata. The tool is free to use, but for saving your annotations, paied subscription has been introduced a few years ago. However, the tool is frequently used for publication ready phylogenetic trees.  
->Download the required files from EVA or using:
+[iTOL](https://itol.embl.de) is an online tool for visualizing phylogenies and related metadata. The tool is free to use, but for saving your annotations, paied subscription has been introduced a few years ago.  
+The tool is frequently used for publication ready phylogenetic trees.  
+>If you don't have them available yet, download the required files from EVA or via command line using:
 > ```sh
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/ML_iqtree.treefile.nwk
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/metadata/metadata.tsv
@@ -174,7 +183,7 @@ To get your tree visualized and annotated in iTOL do the following:
     a. Go to `Datasets` in the Control panel  
     b. Click on `Upload annotation files`  
     c. Choose the two files and click `upload`  
-    > More templates can be downloaded from [https://itol.embl.de/help.cgi#annoTemplate](https://itol.embl.de/help.cgi#annoTemplate)
+    >*Note*: More templates can be downloaded from [https://itol.embl.de/help.cgi#annoTemplate](https://itol.embl.de/help.cgi#annoTemplate)
 6.	Export and save your tree with annotations as a `.pdf`
 
 ### Exercise 3: Visualize a tree using the python library ETE3 (for command line users only)
@@ -185,7 +194,6 @@ Here we have prepared a basic script to plot our tree, called `ete3_phylo.py` (a
 
 To run the script, open a console and type the following commands:
 ```sh
-cp scripts/ete3_phylo.py .
 python scripts/ete3_phylo.py
 open mytree.png
 ```
@@ -197,4 +205,4 @@ Inspect the script and try to answer the following questions:
 2. Where are the colors for the regions defined? Can you change one of them? 
 3. What are the rectangles colored by?  
 
-If you have time, try to change some of the settings in the script. 
+If you have some extra time, try to change some of the settings in the script. 
