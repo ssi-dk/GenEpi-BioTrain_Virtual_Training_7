@@ -66,12 +66,12 @@ muscle -align 16s_sequences.fasta -output 16s_sequences_muscle_alignment.fasta
 
 
 
-## Exercise 3: blastn
+## Exercise 3: BLAST
 For this exercise we will use the Listeria assemblies found in assemblies.tar.gz
 
 If you have not already downloaded and extracted these, either download the tar-file from EVA or from github using
 ```sh
-wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/assemblies.tar.gz
+wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/data/assemblies.tar.gz
 ```
 
 You can extract the assemblies using
