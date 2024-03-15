@@ -15,7 +15,7 @@ In this practical, you will learn to create a phylogenetic tree from an alignmen
 For this exercise, you will need the following stand alone software: 
 - Figtree (http://tree.bio.ed.ac.uk/software/figtree/)
 - MEGA ≥v10 (https://www.megasoftware.net)
-- A Web browser (in order to use Microreact and iTol and to visualize a .png image)
+- A Web browser (in order to use [Microreact](https://microreact.org) and [iTOL](https://itol.embl.de) and to visualize a .png image)
 
 ### Exercise data
 > **Note:** If you have done these steps for session 1, there is no need to redo them  
@@ -59,7 +59,7 @@ Here we use the [*MEGA*](https://www.megasoftware.net) software to create a NJ t
 A tree showing the phylogenetic relationship appears. Read the caption and decide if you agree. 
 
 Questions: 
-1.	Which isolates cluster together?
+1.	Which species cluster together?
 2.	Which genomes are most closely related to the *S. aureus* genomes?
 3.	Is this a reliable tree? 
 
@@ -69,7 +69,8 @@ We again use the [*MEGA*](https://www.megasoftware.net) software to create a Max
 
 1.	Click on Phylogeny and choose a maximum parsimony phyologeny
 2.	Choose `yes` for the current file
-3.	Check the parameters and press `OK`. Make sure you enter `100` bootstrap replicates in the “Test phylogeny” field. 
+3.	Check the parameters and press `OK`. Make sure you enter `100` bootstrap replicates in the “Test phylogeny” field.  
+4. When the tree is done, it is visualized in `Topology only` mode. Click the `Topology only` button in the menu bar to swich to the tree with actual branch lengths. 
 
 A tree showing the phylogenetic relationship appears. Read the caption and decide if you agree. 
 
@@ -153,10 +154,10 @@ To get your tree visualized and annotated in Microreact, do the following:
 3.	Choose or drop your tree file
 4.	Click continue
 5.	Find out how to display the labels.
-6.	Re-root your tree with the ancestor of samples `SRR27240812` and `SRR27240820` as outgroup (use the right-click menu on the correct internal node)
-7.	Add the metadata file `metadata.tsv` (available in the `metadata` folder) to the tree by linking `key` column to the tree tip labels
+6.	Re-root your tree with the `Reference`, and samples`SRR27240806`, `SRR27240812` and `SRR27240820` as outgroup (use the right-click menu on their common ancestor branch)
+7.	Add the metadata file `metadata.tsv` (available in the `metadata` folder) to the tree by linking the tree tip labels (`id`) to the `key` column
 8.	Add color columns for `Region`, `KMA` and `SampleMaterial` using the `Metadata blocks` button
-9.	Add a map using the `lat` and `long` columns from the metadata by clicking on the pencil (Add or edit panels) on the top right.
+9.	Add a map by clicking on the pencil (Add or edit panels) on the top right. Use the `lat` and `long` columns from the metadata for the coordinates.
 10.	Download the map as a `.png` and the tree as a `.svg` file. 
   
 Questions: 
@@ -177,8 +178,8 @@ The tool is frequently used for publication ready phylogenetic trees.
 To get your tree visualized and annotated in iTOL do the following:
 1.	Open iTOL on [https://itol.embl.de](https://itol.embl.de) 
 2.	Click on `Upload`
-3.	Upload your newick tree file by clicking `choose file`
-4.	Re-root your tree with the ancestor of samples `SRR27240812` and `SRR27240820` as outgroup (use the submenu `Tree structure`)
+3.	Upload or drop your newick tree file by clicking `choose file`
+4.	Re-root your tree with the `Reference` and samples`SRR27240806`, `SRR27240812` and `SRR27240820` as outgroup (use the submenu `Tree structure`)
 5.	Use the provided templates `dataset_color_strip_template.txt` and `dataset_color_gradient_template.txt` from the `metadata` folder to add annotations:  
     a. Go to `Datasets` in the Control panel  
     b. Click on `Upload annotation files`  
