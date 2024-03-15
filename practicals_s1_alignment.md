@@ -18,6 +18,7 @@ To have the required tools installed on your computer, use `conda` with the prov
 ```sh
 conda env create -f alignment.env.yaml
 conda env create -f phylo.env.yaml
+conda env create -f snippy.env.yaml
 ```
 Important: Create a subfolder within the repo folder for each tool you are running on the command line, so the output of each tool is in its own folder. 
 
