@@ -100,7 +100,7 @@ To do so, we first need to strip odd characters from the matix using a sed comma
 ```sh
 mkdir gubbins
 cd gubbins
-sed -r 's/::.*//' ../snippy/core.aln > core_stripped.fasta
+sed -r 's/::.*//' ../data/core.aln > core_stripped.fasta
 ```
 This creates a copy of the matrix with the odd characters stripped.  
 We can then run the gubbins command:
