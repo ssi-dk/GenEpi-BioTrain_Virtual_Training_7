@@ -88,7 +88,7 @@ less assemblies/SRR27240806.fasta
 We will use blast to identify the v3-v4 region of the 16s rRNA gene in this assembly. For that we will need a reference sequence.  
 If you have not already downloaded this, do so using
 ```sh
-wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/16s_data/16s_v3_v4_reference.fasta
+wget https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/data/16s_data/16s_v3_v4_reference.fasta
 ```
 
 have a look at the file 
