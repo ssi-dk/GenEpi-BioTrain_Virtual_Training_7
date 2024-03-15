@@ -141,7 +141,7 @@ less SRR27240806_16s_blast_2.tsv
 We can also blast multiple query sequences at once. Let us try with all the different 16s sequences we aligned earlier.
 
 ```sh
-blastn -query 16s_v3_v4_sequences.fasta -subject assemblies/SRR27240806.fasta -out SRR27240806_16s_all_blast.txt
+blastn -query 16s_sequences.fasta -subject assemblies/SRR27240806.fasta -out SRR27240806_16s_all_blast.txt
 ```
 And have a look at the output again
 
@@ -179,7 +179,7 @@ ls -l blast_DB
 
 We can now query the reference 16s sequence against all the assemblies at once
 ```sh
-blastn -query 16s_v3_v4_sequences.fasta -db blast_DB/Listeria_assemblies -out Listeria_16s_blast.txt
+blastn -query 16s_v3_v4_reference.fasta -db blast_DB/Listeria_assemblies -out Listeria_16s_blast.txt
 ```
 
 And have a look at the output
