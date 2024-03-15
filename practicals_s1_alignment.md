@@ -216,7 +216,7 @@ To get back into the screen, use `screen -r`
 > ```
 When snippy is done, you need to create the core-genome using:  
 ```sh
-snippy-core --ref ../assemblies/SRR27240806.fasta SSR*
+snippy-core --ref ../assemblies/SRR27240806.fasta SRR*
 ```
 
 and finally you can exit the screen: 
