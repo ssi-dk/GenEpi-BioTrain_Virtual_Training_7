@@ -169,7 +169,7 @@ mkdir blast_DB
 
 And then make the database using
 ```sh
-makeblastdb -in Listeria_assemblies.fasta -out blast_DB/Listeria_assemblies -dbtype nucl
+makeblastdb -hash_index -in Listeria_assemblies.fasta -out blast_DB/Listeria_assemblies -dbtype nucl
 ```
 
 Have a look at the files in the "blast_DB" folder
