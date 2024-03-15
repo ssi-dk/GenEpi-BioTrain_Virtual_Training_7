@@ -3,7 +3,7 @@ All data used in the GenEpi-BioTrain Virtual Training 7 session on march 19-20, 
 
 ## Access the exercises
 The exercises are available here:  
-[Exercise session 1](practicals_s1_alignment)  
+[Exercise session 1](./practicals_s1_alignment)  
 [Exercise session 2](practicals_s1_phylo.md)
 
 ## Data used in this training and how to aquire it 
