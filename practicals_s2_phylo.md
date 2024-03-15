@@ -22,8 +22,8 @@ cd GenEpi-BioTrain_Virtual_Training_7
 ```
 To have the required tools installed on your computer, use `conda` with the provided environment `.yaml` files:
 ```sh
-conda install -c bioconda -c conda-forge -f alignment.env.yaml
-conda install -c bioconda -c conda-forge -f phylo.env.yaml
+conda env create -f alignment.env.yaml
+conda env create -f phylo.env.yaml
 ```
 Important: Create a subfolder within the repo folder for each tool you are running on the command line, so the output of each tool is in its own folder. 
 
