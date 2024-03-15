@@ -212,7 +212,7 @@ When it's running, you can detach the screen using `Ctrl+a`, followed by `d` to 
 To get back into the screen, use `screen -r`  
 > Note: For running snippy on raw reads (which is much more reliable but takes a bit longer):  
 > ```sh
-> for f in ../reads/SRR272408*_R1*; do n=$(basename $f); snippy --outdir ${n/_R1*} --R1 $(dirname ${f})/${n} --R2 $(dirname ${f})/${n/_R1*}_R2.fastq.gz --reference ../assemblies/SRR27240806.fasta; done
+> for f in ../reads/SRR272408*_1*; do n=$(basename $f); snippy --outdir ${n/_1*} --R1 $(dirname ${f})/${n} --R2 $(dirname ${f})/${n/_1*}_2.fastq.gz --reference ../assemblies/SRR27240806.fasta; done
 > ```
 When snippy is done, you need to create the core-genome using:  
 ```sh
