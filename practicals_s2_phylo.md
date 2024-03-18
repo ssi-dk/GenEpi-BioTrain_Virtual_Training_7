@@ -5,8 +5,8 @@ In this practical, you will learn to create a phylogenetic tree from an alignmen
 1.	Phylogeny on alignment from morning session using different methods:
     - Simple Neighbor-joining (MEGA)
     - Maximum parsimony with bootstrap (MEGA)
-    - Approximate maximum likelihood (fasttree)
     - Maximum likelihood (IQTREE)
+    - Approximate maximum likelihood (fasttree)
 2.	Visualisation of tree with Microreact, iTOL and ETE3
 
 
@@ -24,17 +24,16 @@ All required files for the practicals are deposited in the github repo [github.c
 To get started, clone this repo to your computer.  
 ```sh
 cd <your preferred location>
-git clone https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7.git
+it clone git@github.com:ssi-dk/GenEpi-BioTrain_Virtual_Training_7.git
 cd GenEpi-BioTrain_Virtual_Training_7
 ```
 To have the required tools installed on your computer, use `conda` with the provided environment `.yaml` files:
 ```sh
-conda env create -f alignment.env.yaml
 conda env create -f phylo.env.yaml
 ```
 Important: Create a subfolder within the repo folder for each tool you are running on the command line, so the output of each tool is in its own folder. 
 
-## Part 1
+## Part 1 - Create a phylogenetic tree
 In Part 1 of this practical, we will create phylogenetic trees using different methods. 
 
 ### Exercise 1: Create a Neighbour-joining tree
@@ -47,7 +46,7 @@ Here we use the [*MEGA*](https://www.megasoftware.net) software to create a NJ t
 > wget https://raw.githubusercontent.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/main/data/16s_data/16s_sequences_mafft_alignment.fasta
 > ```
 1.	Open MEGA on your Computer
-2.	Drag-n-drop the `16s_sequences_mafft_alignment.fasta` file from session 1 on the window
+2.	Drag-n-drop the `16s_sequences_mafft_alignment.fasta` file on the window. The file is available in the `mafft` folder from session 1, in the `data/16s_data` folder in your git repo, or whereever you have downloaded it from EVA or via `wget`.
 3.	Choose `Analize` because the file is already aligned
 4.	Choose `Nucleotide Sequences`
 5.	Choose `Yes` when asked if these are protein-coding sequences because we are using the full 16S sequence.
@@ -70,7 +69,7 @@ We again use the [*MEGA*](https://www.megasoftware.net) software to create a Max
 1.	Click on Phylogeny and choose a maximum parsimony phyologeny
 2.	Choose `yes` for the current file
 3.	Check the parameters and press `OK`. Make sure you enter `100` bootstrap replicates in the “Test phylogeny” field.  
-4. When the tree is done, it is visualized in `Topology only` mode. Click the `Topology only` button in the menu bar to swich to the tree with actual branch lengths. 
+4. When the tree is done, it is visualized in `Topology only` mode. Click the `Topology only` button in the menu bar to switch to the tree with actual branch lengths. 
 
 A tree showing the phylogenetic relationship appears. Read the caption and decide if you agree. 
 
@@ -136,7 +135,7 @@ fasttree -nt -gtr ../gubbins/core_stripped.filtered_polymorphic_sites.fasta > co
 ```
 This creates the output file `core_fasttree.nwk`, which is a *NEWICK* format tree file. 
 
-## Part 2
+## Part 2 - Visualize the phylogeny
 In this part, we will visualize the obtained tree using different methods. 
 
 ### Exercise 1: Visualize a tree using Microreact
