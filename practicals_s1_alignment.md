@@ -185,8 +185,37 @@ blastn -query 16s_v3_v4_reference.fasta -db blast_DB/Listeria_assemblies -out Li
 
 And have a look at the output
 ```sh
-less Listeria_16s_blast
+less Listeria_16s_blast.txt
 ```
+
+
+And lastly, here is a neat little trick if you want to quickly compare how a gene differs across a set of isolates:
+```sh
+blastn -query 16s_v3_v4_reference.fasta -db blast_DB/Listeria_assemblies -qcov_hsp_perc 90 -perc_identity 80 -out Listeria_16s_blast.tsv -outfmt "6 sseqid sseq"
+```
+
+-qcov_hsp_perc 90 means only hits which covers at least 90% of the query sequence will be included
+-perc_identity 90 means only hits with at least 80% similarity to the query sequence will be included
+
+Note that our output contains the name of the subject sequence in column 1, and the aligned part of the subject sequence in column 2.
+
+Now run this command:
+```sh
+while IFS=$'\t' read -r col1 col2; do echo -e ">$col1\n$col2"; done < Listeria_16s_blast.tsv > Listeria_16s_sequences.fasta
+```
+
+This will read the tab separated file and output a fasta-formatted file with column 1 ans the headers and column 2 as the sequence.
+
+Have a look at the file:
+```sh
+less Listeria_16s_blast.txt
+```
+
+Do note that the sequences contain gaps because they have been individually pairwise aligned to the reference.
+This does not mean they are all aligned to each other! Since sequences may contain insertions relative to the reference which others do not.
+
+But if you want to investigate the diversity within the gene, you can ofcourse do Multiple Sequence Alignment with f.ex. MAFFT or MUSCLE
+
 
 
 ## Exercise 4: Core genome alignment and SNP analysis
