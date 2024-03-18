@@ -216,7 +216,10 @@ This does not mean they are all aligned to each other! Since sequences may conta
 
 But if you want to investigate the diversity within the gene, you can ofcourse do Multiple Sequence Alignment with f.ex. MAFFT or MUSCLE
 
-
+Have a look at the file:
+```sh
+muscle -align Listeria_16s_sequences.fasta -output Listeria_16s_sequences_muscle.fasta
+```
 
 ## Exercise 4: Core genome alignment and SNP analysis
 
