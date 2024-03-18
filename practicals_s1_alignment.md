@@ -29,7 +29,7 @@ Gap penalty = -2
 
 ## Exercise 2: Multiple Sequence Alignment with mafft and muscle
 Use the environment `alignment`  
-Align the sequences found in data/16S/16s_sequences.fasta using mafft and muscle from command line
+Align the sequences found in data/16S_data/16s_sequences.fasta using mafft and muscle from command line
 
 If you don't have them available yet, download the sequences using:
 ```sh
