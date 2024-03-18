@@ -6,7 +6,7 @@ The exercises are available here:
 [Exercise session 1](./practicals_s1_alignment.md)  
 [Exercise session 2](practicals_s2_phylo.md)
 
-## Data used in this training and how to aquire it 
+## Data used in this training and how to acquire it 
  
 ### Download metadata and genome assemblies: 
  
