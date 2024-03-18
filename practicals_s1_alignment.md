@@ -1,10 +1,9 @@
 # Practical: Genome alignments
 ## Overview 
-Exercise: Fill out the Needleman-Wunsch algorithm matrix (on a handout)  
-Exercise: Make a multi sequence alignment using muscle and mafft
-Exercise: Get familiar with the blastn command  
-Exercise: Run MLST  
-Exercise: Run a core-genome SNP analysis using snippy
+Exercise: Generate a pairwise sequence alignment using the Needleman-Wunsch algorithm  
+Exercise: Generate a multiple sequence alignment using muscle and mafft
+Exercise: Get familiar with BLAST tools in various ways
+Exercise: Generate a core genome SNP alignment using Snippy
 
 ## Before you start
 All required files for the practicals are deposited in the github repo [github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7).  
