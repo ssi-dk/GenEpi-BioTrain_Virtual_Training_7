@@ -194,8 +194,8 @@ And lastly, here is a neat little trick if you want to quickly compare how a gen
 blastn -query 16s_v3_v4_reference.fasta -db blast_DB/Listeria_assemblies -qcov_hsp_perc 90 -perc_identity 80 -out Listeria_16s_blast.tsv -outfmt "6 sseqid sseq"
 ```
 
--qcov_hsp_perc 90 means only hits which covers at least 90% of the query sequence will be included
--perc_identity 90 means only hits with at least 80% similarity to the query sequence will be included
+ - qcov_hsp_perc 90 means only hits which covers at least 90% of the query sequence will be included
+ - perc_identity 80 means only hits with at least 80% similarity to the query sequence will be included
 
 Note that our output contains the name of the subject sequence in column 1, and the aligned part of the subject sequence in column 2.
 
