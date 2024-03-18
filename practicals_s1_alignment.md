@@ -24,7 +24,7 @@ Important: Create a subfolder within the repo folder for each tool you are runni
 
 ## Exercise 1: Needleman-Wunsch algorithm
 ![Needelmann-Wunsch substitution matrix](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/imgs/NWsubst_model.png)  
-Gap penalty = -2
+Gap penalty = -2  
 ![Needelmann-Wunsch exercise](https://github.com/ssi-dk/GenEpi-BioTrain_Virtual_Training_7/raw/main/imgs/NWexercise.png)  
 
 ## Exercise 2: Multiple Sequence Alignment with mafft and muscle
@@ -208,7 +208,7 @@ This will read the tab separated file and output a fasta-formatted file with col
 
 Have a look at the file:
 ```sh
-less Listeria_16s_blast.txt
+less Listeria_16s_sequences.fasta
 ```
 
 Do note that the sequences contain gaps because they have been individually pairwise aligned to the reference.
