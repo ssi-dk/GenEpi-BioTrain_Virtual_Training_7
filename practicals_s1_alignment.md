@@ -228,9 +228,11 @@ Use a screen so you can have the job running in the background:
 screen
 ```
 
+cd back into your data folder
+
 Use the environment `env_snippy_v4.3.6`  
 ```sh
-. activate alignment
+. activate env_snippy_v4.3.6
 ```
 
 Run Snippy on the 22 assembly files in `assemblies/`
