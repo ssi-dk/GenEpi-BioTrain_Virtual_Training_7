@@ -24,7 +24,9 @@ These data can be acquired in three different ways:
 ### Download raw read files (optional and only used in one optional step in the practicals)
 Raw read files used in exercises are too large to be hosted on EVA or github and will have to be downloaded from ENA.  
 If you want to download read data for the exercises, run the following lines: 
->**Note:** this will take a while and the files are rather large!  
+>**Note:** this will take a while and the files are rather large!
+If you have screen installed on your system, it will be convenient to use here
+
 ```sh
 mkdir -p data
 cd data
