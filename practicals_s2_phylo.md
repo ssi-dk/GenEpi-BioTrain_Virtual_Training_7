@@ -24,7 +24,7 @@ All required files for the practicals are deposited in the github repo [github.c
 To get started, clone this repo to your computer.  
 ```sh
 cd <your preferred location>
-it clone git@github.com:ssi-dk/GenEpi-BioTrain_Virtual_Training_7.git
+git clone git@github.com:ssi-dk/GenEpi-BioTrain_Virtual_Training_7.git
 cd GenEpi-BioTrain_Virtual_Training_7
 ```
 To have the required tools installed on your computer, use `conda` with the provided environment `.yaml` files:
