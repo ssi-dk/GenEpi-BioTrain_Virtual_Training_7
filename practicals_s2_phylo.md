@@ -2,7 +2,7 @@
 In this practical, you will learn to create a phylogenetic tree from an alignment and visualise it in different tools. 
 
 ## Overview 
-1.	Phylogeny on alignment from morning session using different methods:
+1.	Phylogeny on alignment from session 1 using different methods:
     - Simple Neighbor-joining (MEGA)
     - Maximum parsimony with bootstrap (MEGA)
     - Maximum likelihood (IQTREE)
